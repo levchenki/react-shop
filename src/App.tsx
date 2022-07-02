@@ -1,7 +1,7 @@
-import React from 'react';
-import Header from './layout/Header/Header';
-import Footer from './layout/Footer/Footer';
-import Main from './layout/Main/Main';
+import React from 'react'
+import Header from './layout/Header/Header'
+import Footer from './layout/Footer/Footer'
+import Main from './layout/Main/Main'
 
 const App: React.FC = () => (
   <div className='App'>
@@ -9,6 +9,6 @@ const App: React.FC = () => (
     <Main/>
     <Footer/>
   </div>
-);
+)
 
-export default App;
+export default App

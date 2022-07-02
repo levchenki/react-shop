@@ -1,5 +1,5 @@
 import React from 'react'
-import { TOrder } from '../../types/Data'
+import {TOrder} from '../../types/Data'
 import BasketItem from './BasketItem'
 import './Basket.scss'
 
@@ -21,10 +21,10 @@ const BasketList: React.FC<BasketListProps> = ({ order, removeFromCart,  incItem
           order.length ? order.map(item => (
             <BasketItem
               key={item.id}
+              decItem={decItem}
               incItem={incItem}
               item={item}
               removeFromCart={removeFromCart}
-              decItem={decItem}
             />
           )) : <li>Корзина пуста</li>
         }

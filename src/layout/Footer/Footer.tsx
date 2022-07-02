@@ -1,13 +1,13 @@
-import React from 'react';
-import './Footer.module.scss';
+import React from 'react'
+import './Footer.module.scss'
 
 const Footer: React.FC = () => (
   <footer>
     <div className='container'>
       {`${new Date().getFullYear()} Copyright Text`}
-      <a href='#'>Repository</a>
+      <a href='https://github.com/levchenki/react-shop'>Repository</a>
     </div>
   </footer>
-);
+)
 
-export default Footer;
+export default Footer
