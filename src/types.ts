@@ -1,5 +1,3 @@
-import exp from 'constants'
-
 export type TGoodOriginal = {
   mainId: string
   displayName: string
@@ -93,4 +91,30 @@ export type TOrder = {
   title: string
   price: number
   quantity: number
+}
+
+export type TState = {
+  goods: TGood[],
+  loading: boolean,
+  order: TOrder[],
+  isCartShow: boolean,
+  alertName: string,
+  
+  addToCart: (id: string)=>void,
+  removeFromCart: (id: string)=>void,
+  incItem: (id: string)=>void,
+  decItem: (id: string)=>void,
+  handleCartShow: ()=>void,
+  closeAlert: ()=>void,
+  setProducts: (data:any)=>void
+}
+
+export const enum ActionType {
+  addToCart = 'ADD_TO_CART',
+  removeFromCart = 'REMOVE_FROM_CART',
+  incItem = 'INC_ITEM',
+  decItem = 'DEC_ITEM',
+  closeAlert = 'CLOSE_ALERT',
+  handleCartChow = 'HANDLE_CART_SHOW',
+  setProducts = 'SET_PRODUCTS'
 }

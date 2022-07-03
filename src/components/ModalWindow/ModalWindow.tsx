@@ -1,17 +1,21 @@
-import React, { ReactNode } from 'react'
+import React, {ReactNode} from 'react'
 import style from './ModalWindow.module.scss'
+import {useShopContext} from "../../context/context";
 
 type ModalWindowProps = {
-  closeHandler: ()=> void
   children: ReactNode
 }
 
-const ModalWindow: React.FC<ModalWindowProps> = ({ closeHandler, children }) => (
-  <div className={style.bg} onClick={closeHandler}>
-    <div className={style.window} onClick={(e): void => e.stopPropagation()}>
-      {children}
+const ModalWindow: React.FC<ModalWindowProps> = ({ children }) => {
+  const {handleCartShow} = useShopContext()
+  
+  return (
+    <div className={style.bg} onClick={handleCartShow}>
+      <div className={style.window} onClick={(event): void => event.stopPropagation()}>
+        {children}
+      </div>
     </div>
-  </div>
-)
+  );
+}
 
 export default ModalWindow

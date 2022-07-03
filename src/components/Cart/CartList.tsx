@@ -1,25 +1,20 @@
 import React from 'react'
-import {TOrder} from '../../types/Data'
-import BasketItem from './BasketItem'
-import './Basket.scss'
+import CartItem from './CartItem'
+import {useShopContext} from "../../context/context";
+import style from './Cart.module.scss'
 
-type BasketListProps = {
-  order: TOrder[]
-  removeFromCart: (id: string)=> void
-  incItem: (id: string)=> void
-  decItem: (id: string)=> void
-}
-
-const BasketList: React.FC<BasketListProps> = ({ order, removeFromCart,  incItem, decItem }) => {
+const CartList: React.FC = () => {
+  const {decItem, incItem, order, removeFromCart} = useShopContext()
+  
   const totalPrice = order.reduce((sum: number, item) => sum + item.price * item.quantity, 0)
 
   return (
-    <div className={'basket'}>
-      <ul className={'basket_list'}>
+    <div className={style.basket}>
+      <ul className={style.basket_list}>
         <li>Корзина</li>
         {
           order.length ? order.map(item => (
-            <BasketItem
+            <CartItem
               key={item.id}
               decItem={decItem}
               incItem={incItem}
@@ -39,4 +34,4 @@ const BasketList: React.FC<BasketListProps> = ({ order, removeFromCart,  incItem
   )
 }
 
-export default BasketList
+export default CartList
